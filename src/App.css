@@ -1,24 +1,32 @@
 /* Page layout */
 .page {
   min-height: 100vh;
-  background: radial-gradient(1200px 600px at 75% 20%, rgba(60, 120, 80, 0.35), rgba(0,0,0,0)),
-              radial-gradient(1000px 500px at 20% 30%, rgba(255, 215, 0, 0.25), rgba(0,0,0,0)),
-              radial-gradient(800px 400px at 50% 80%, rgba(255, 0, 0, 0.25), rgba(0,0,0,0)),
-              #0f0f0f;
+  background:
+    /* soft vignette to darken edges */
+    radial-gradient(1400px 900px at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.68) 100%),
+    /* dark red glow — top-left */
+    radial-gradient(900px 540px at 12% 6%, rgba(43, 6, 6, 0.8) 0%, rgba(110,18,18,0) 65%),
+    /* green glow — center */
+    radial-gradient(1100px 560px at 62% 10%, rgba(43, 94, 68, 0.52) 0%, rgba(40,120,80,0) 70%),
+    /* yellow highlight — right side */
+    radial-gradient(840px 400px at 96% 40%, rgba(255, 213, 94, 0.24) 0%, rgba(255,213,94,0) 75%),
+    /* deeper bottom fade to black */
+    linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.85) 100%),
+    #0a0a0a;
   color: #fff;
 }
 
 .main {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: 0px 25px 80px;
 }
 
 .page-title {
-  margin: 32px 0 24px;
+  margin: 60px;
   text-align: center;
-  font-weight: 600;
-  font-size: 48px;
+  font-weight: 100;
+  font-size: 45px;
 }
 
 /* Glass card */
@@ -52,7 +60,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  padding: 18px 18px 12px;
+  padding: 10px 20px 0px;
   border-bottom: 1px solid #ffffff;
 }
 .tab {
@@ -68,8 +76,9 @@
 .tab.active {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.25);
-  border-bottom: 2px solid #f4b35a;
-  border-radius: 10px;
+  border-bottom: 3px solid #ffdd00;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   padding: 12px 16px;
 }
 
