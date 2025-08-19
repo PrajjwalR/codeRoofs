@@ -9,7 +9,7 @@ const SignupCard = () => {
           <span>Fan Sign Up</span>
         </div>
         <div className="tab">
-          <span style={{ fontSize: 18 }}>⭐</span>
+          <span style={{ fontSize: 18 }}>⭐g</span>
           <span>Talent Sign Up</span>
         </div>
         <div className="tab">

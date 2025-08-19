@@ -2,14 +2,14 @@
 .page {
   min-height: 100vh;
   background:
-    /* soft vignette to darken edges */
-    radial-gradient(1400px 900px at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.68) 100%),
-    /* dark red glow — top-left */
-    radial-gradient(900px 540px at 12% 6%, rgba(43, 6, 6, 0.8) 0%, rgba(110,18,18,0) 65%),
+    /* dark red glow — top-left (on top) */
+    radial-gradient(1700px 1000px at 15% 10%, rgba(51, 9, 9, 0.8) 0%, rgba(110,18,18,0) 75%),
     /* green glow — center */
-    radial-gradient(1100px 560px at 62% 10%, rgba(43, 94, 68, 0.52) 0%, rgba(40,120,80,0) 70%),
+    radial-gradient(1100px 560px at 62% 10%, rgba(55, 122, 88, 0.52) 0%, rgba(40,120,80,0) 70%),
     /* yellow highlight — right side */
-    radial-gradient(840px 400px at 96% 40%, rgba(255, 213, 94, 0.24) 0%, rgba(255,213,94,0) 75%),
+    radial-gradient(500px 500px at 80% 40%, rgba(245, 207, 102, 0.24) 0%, rgba(255,213,94,0) 75%),
+    /* soft vignette to darken edges (below glows) */
+    radial-gradient(1800px 1500px at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.68) 100%),
     /* deeper bottom fade to black */
     linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.85) 100%),
     #0a0a0a;
@@ -31,11 +31,40 @@
 
 /* Glass card */
 .glass-card {
-  backdrop-filter: blur(6px);
-  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.06);
+  border: none;
+  overflow: visible;
+  position: relative;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #e77 0%, #83ff73 30%, #ffd55e 60%, #8af 100%);
+  z-index: 1;
+}
+
+/* subtle glare on the glass */
+.glass-card:after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 13px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.02) 35%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
 }
 
 .gradient-border {
